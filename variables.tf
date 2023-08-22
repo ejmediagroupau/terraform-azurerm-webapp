@@ -1,4 +1,4 @@
-variable "resource_groupe_name" {
+variable "resource_group_name" {
   description = "Resource groupe name"
 }
 
