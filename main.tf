@@ -1,4 +1,13 @@
 
+terraform {
+  required_version = "~> 1.1"
+  required_providers {
+    azurerm = {
+      version = "~> 3.23"
+    }
+  }
+}
+
 
 resource "azurerm_service_plan" "plan-app" {
   name                = var.service_plan_name
