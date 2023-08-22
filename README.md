@@ -6,7 +6,12 @@ Terraform module for provision Azure Service plan, App service (web app) and App
 
 ```
 terraform {
-  required_version = ">= 0.12"
+  required_version = "~> 1.1"
+  required_providers {
+    azurerm = {
+      version = "~> 3.23"
+    }
+  }
 }
 
 provider "azurerm" {
@@ -19,11 +24,11 @@ resource "azurerm_resource_group" "rg-app" {
 }
 
 module "webapp" {
-  source               = "<source>"
-  service_plan_name    = "serviceplandemo"
-  app_name             = "webappdemomodule"
-  location             = azurerm_resource_group.rg-app.location
-  resource_groupe_name = azurerm_resource_group.rg-app.name
+  source              = "<source>"
+  service_plan_name   = "spmyapp2"
+  app_name            = "myappdemobook2"
+  location            = "West Europe"
+  resource_group_name = module.resourcegroup.resource_group_name
 }
 
 output "webapp_url" {
